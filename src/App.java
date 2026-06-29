@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
 
@@ -15,11 +16,27 @@ public class App {
 
         Cinema cinema = new Cinema("Cinemax", "City Center", rooms);
         System.out.println("Welcome to " + cinema.getName() + ", We are located at " + cinema.getAddress());
-        
-        for (int i = 0; i < cinema.getRooms().length; i++) {
-            Room room = cinema.getRooms()[i];
-            System.out.println("Room " + room.getNumber() + ": " + room.getAssignedMovie().getName() + " (" + room.getAssignedMovie().getGenre() + ")" + ", " +room.getDuration() + " minutes, directed by " + room.getAssignedMovie().getDirector());
+        System.out.println("Choose an option: 1. View all movies, 2. exit: ");
+        Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
+
+        while (choice != 2) {
+            System.out.println("Invalid option. Please try again.");
+            System.out.println("Choose an option: 1. View all movies, 2. exit: ");
+            choice = scanner.nextInt();
         }
+
+        if (choice == 1) {
+            for (int i = 0; i < cinema.getRooms().length; i++) {
+                Room room = cinema.getRooms()[i];
+                System.out.println("Room " + room.getNumber() + ": " + room.getAssignedMovie().getName() + " (" + room.getAssignedMovie().getGenre() + ")" + ", " +room.getDuration() + " minutes, directed by " + room.getAssignedMovie().getDirector());
+            }
+            
+        } else if (choice == 2) {
+            System.out.println("Thank you for visiting " + cinema.getName() + "!");            
+        }
+
+        scanner.close();
 
     }
 }
