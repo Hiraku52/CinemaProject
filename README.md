@@ -1,18 +1,40 @@
-## Getting Started
+# CinemaProject 🎬
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+A basic cinema management system developed in Java as a learning project focused on Object-Oriented Programming (OOP).
 
-## Folder Structure
+## Current Features
 
-The workspace contains two folders by default, where:
+- Create movies with their information.
+- Assign movies to cinema rooms.
+- Display all available rooms and their assigned movies.
+- Interactive console menu.
+- Input validation for menu options.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Concepts Practiced
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- Classes and Objects
+- Constructors
+- Encapsulation
+- Arrays of Objects
+- Getters
+- for loops
+- while loops
+- User input with Scanner
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Technologies
 
-## Dependency Management
+- Java
+- Git
+- GitHub
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Project Status
+
+🚧 In development
+
+Future versions will include:
+
+- Seat management
+- Ticket reservations
+- Customer management
+- Improved menus
+- More OOP concepts
