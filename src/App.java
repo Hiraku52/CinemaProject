@@ -16,25 +16,39 @@ public class App {
 
         Cinema cinema = new Cinema("Cinemax", "City Center", rooms);
         System.out.println("Welcome to " + cinema.getName() + ", We are located at " + cinema.getAddress());
-        System.out.println("Choose an option: 1. View all movies, 2. exit: ");
+        System.out.println("Choose an option: 1. View all movies, 2. Search movies, 3. exit: ");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
+        scanner.nextLine(); // Consume the newline character
 
-        while (choice != 2) {
-            System.out.println("Invalid option. Please try again.");
-            System.out.println("Choose an option: 1. View all movies, 2. exit: ");
+        while (choice != 3) {
+            if (choice == 1) {
+                for (int i = 0; i < cinema.getRooms().length; i++) {
+                    Room room = cinema.getRooms()[i];
+                    System.out.println("Room " + room.getNumber() + ": " + room.getAssignedMovie().getName() + " (" + room.getAssignedMovie().getGenre() + ")" + ", " +room.getDuration() + " minutes, directed by " + room.getAssignedMovie().getDirector());
+                }
+            } else if (choice == 2) {
+                System.out.println("Enter the movie name you want to search for:");
+                String movieName = scanner.nextLine();
+                boolean found = false;
+                for (int i = 0; i < cinema.getRooms().length; i++) {
+                    Room room = cinema.getRooms()[i];
+                    if (room.getAssignedMovie().getName().equalsIgnoreCase(movieName)) {
+                        System.out.println("Movie found in Room " + room.getNumber() + ": " + room.getAssignedMovie().getName() + " (" + room.getAssignedMovie().getGenre() + ")" + ", " +room.getDuration() + " minutes, directed by " + room.getAssignedMovie().getDirector());
+                        found = true;
+                    }
+                }
+                if (!found) {
+                    System.out.println("Movie not found.");
+                }
+            } else {
+                System.out.println("Invalid option. Please try again.");
+            }
+            System.out.println("Choose an option: 1. View all movies, 2. Search movies, 3. exit: ");
             choice = scanner.nextInt();
         }
 
-        if (choice == 1) {
-            for (int i = 0; i < cinema.getRooms().length; i++) {
-                Room room = cinema.getRooms()[i];
-                System.out.println("Room " + room.getNumber() + ": " + room.getAssignedMovie().getName() + " (" + room.getAssignedMovie().getGenre() + ")" + ", " +room.getDuration() + " minutes, directed by " + room.getAssignedMovie().getDirector());
-            }
-            
-        } else if (choice == 2) {
-            System.out.println("Thank you for visiting " + cinema.getName() + "!");            
-        }
+        System.out.println("Thank you for visiting " + cinema.getName() + "!");        
 
         scanner.close();
 
